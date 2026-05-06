@@ -82,3 +82,14 @@ class IstatistikHesaplayici:
                 return None
             carpim *= num
         return carpim ** (1 / len(temiz_veri))
+
+    def ceyrekler(self, temiz_veri):
+        """Verilerin çeyreklerini hesaplar."""
+        if not temiz_veri:
+            return None
+        sorted_veri = sorted(temiz_veri)
+        n = len(sorted_veri)
+        q1 = sorted_veri[n // 4]
+        q2 = self.medyan(temiz_veri)
+        q3 = sorted_veri[3 * n // 4]
+        return {"Q1": q1, "Q2": q2, "Q3": q3}
