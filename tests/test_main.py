@@ -16,7 +16,8 @@ print(hesaplayici.minimum_deger(temiz_veri))
 print(hesaplayici.standart_sapma(temiz_veri))
 print(hesaplayici.mod(temiz_veri))
 print(hesaplayici.medyan(temiz_veri))
-print(temizleyici.temizle("Bu bir liste değil"))  # Uyarı vermeli ve [] dönmeli
-print(
-    temizleyici.temizle([10, float("inf"), 20])
-)  # Sonsuz olanı atmalı, sadece [10.0, 20.0] dönmeli
+print(temizleyici.temizle("Bu bir liste değil"))
+print(temizleyici.temizle([10, float("inf"), 20]))
+print(f"Açıklık: {hesaplayici.aciklik(temiz_veri)}")
+print(f"Değişim Katsayısı: {hesaplayici.degisim_katsayisi(temiz_veri)}")
+print(f"Geometrik Ortalama: {hesaplayici.geometrik_ortalama(temiz_veri)}")

@@ -59,3 +59,26 @@ class IstatistikHesaplayici:
         """Verilen temiz veri listesinin standart sapmasını hesaplar."""
         varyans = self.varyans_hesapla(temiz_veri)
         return math.sqrt(varyans)
+
+    def aciklik(self, temiz_veri):
+        """Verilen temiz veri listesinin açıklığını hesaplar."""
+        if not temiz_veri:
+            return 0
+        return self.maximum_deger(temiz_veri) - self.minimum_deger(temiz_veri)
+
+    def degisim_katsayisi(self, temiz_veri):
+        ortalama = self.ortalama(temiz_veri)
+        standart_sapma = self.standart_sapma(temiz_veri)
+        if ortalama == 0:
+            return 0
+        return standart_sapma / ortalama
+
+    def geometrik_ortalama(self, temiz_veri):
+        if not temiz_veri:
+            return 0
+        carpim = 1
+        for num in temiz_veri:
+            if num <= 0:
+                return None
+            carpim *= num
+        return carpim ** (1 / len(temiz_veri))
