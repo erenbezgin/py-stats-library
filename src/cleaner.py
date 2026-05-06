@@ -3,6 +3,7 @@ class VeriTemizleyici:
         pass
 
     def temizle(self, ham_veri):
+        """Verilen ham veri listesini temizler ve sadece sayısal değerleri içeren bir liste döndürür."""
         temiz_liste = []
         for i in ham_veri:
             try:
