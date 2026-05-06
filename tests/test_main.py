@@ -14,3 +14,9 @@ print(hesaplayici.ortalama(temiz_veri))
 print(hesaplayici.maximum_deger(temiz_veri))
 print(hesaplayici.minimum_deger(temiz_veri))
 print(hesaplayici.standart_sapma(temiz_veri))
+print(hesaplayici.mod(temiz_veri))
+print(hesaplayici.medyan(temiz_veri))
+print(temizleyici.temizle("Bu bir liste değil"))  # Uyarı vermeli ve [] dönmeli
+print(
+    temizleyici.temizle([10, float("inf"), 20])
+)  # Sonsuz olanı atmalı, sadece [10.0, 20.0] dönmeli

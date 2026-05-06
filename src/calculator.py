@@ -21,7 +21,7 @@ class IstatistikHesaplayici:
         return min(temiz_veri)
 
     def medyan(self, temiz_veri):
-        """"""
+        """Verilen temiz veri listesinin medyanını hesaplar."""
         if not temiz_veri:
             return None
         sorted_veri = sorted(temiz_veri)
@@ -32,6 +32,7 @@ class IstatistikHesaplayici:
             return (sorted_veri[n // 2 - 1] + sorted_veri[n // 2]) / 2
 
     def mod(self, temiz_veri):
+        """Verilen temiz veri listesinin modunu hesaplar."""
         if not temiz_veri:
             return None
         frekans = {}
