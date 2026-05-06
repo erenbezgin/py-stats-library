@@ -20,6 +20,30 @@ class IstatistikHesaplayici:
             return None
         return min(temiz_veri)
 
+    def medyan(self, temiz_veri):
+        """"""
+        if not temiz_veri:
+            return None
+        sorted_veri = sorted(temiz_veri)
+        n = len(sorted_veri)
+        if n % 2 == 1:
+            return sorted_veri[n // 2]
+        else:
+            return (sorted_veri[n // 2 - 1] + sorted_veri[n // 2]) / 2
+
+    def mod(self, temiz_veri):
+        if not temiz_veri:
+            return None
+        frekans = {}
+        for num in temiz_veri:
+            if num in frekans:
+                frekans[num] += 1
+            else:
+                frekans[num] = 1
+        max_frekans = max(frekans.values())
+        mod_degerleri = [k for k, v in frekans.items() if v == max_frekans]
+        return min(mod_degerleri) if mod_degerleri else None
+
     def varyans_hesapla(self, temiz_veri):
         """Verilen temiz veri listesinin varyansını hesaplar."""
         if not temiz_veri:
