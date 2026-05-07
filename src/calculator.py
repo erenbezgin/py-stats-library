@@ -147,3 +147,15 @@ class IstatistikHesaplayici:
         kesisim = regresyon_katsayilari["kesisim"]
         tahmin_y = egim * yeni_x + kesisim
         return tahmin_y
+
+    def aykiri_deger_bul(self, temiz_veri):
+        """VErilen temiz veri listesideki ayrkırı degerleri bulur ve döndürür"""
+        if not temiz_veri:
+            return []
+        q1 = self.ceyrekler(temiz_veri)["Q1"]
+        q3 = self.ceyrekler(temiz_veri)["Q3"]
+        iqr = q3 - q1
+        alt_sinir = q1 - 1.5 * iqr
+        ust_sinir = q3 + 1.5 * iqr
+        aykiri_liste = [x for x in temiz_veri if x < alt_sinir or x > ust_sinir]
+        return aykiri_liste

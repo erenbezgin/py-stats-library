@@ -46,3 +46,9 @@ kesisim = model["kesisim"]
 # 3. Şimdi çiziciye bu bilgileri ver (EL)
 cizici = GrafikCizici()
 cizici.regresyon_grafigi_ciz(saatler, notlar, egim, kesisim)
+# Normal verilerin arasına bir tane "aykırı" sızdıralım
+aykiri_test_verisi = [10, 12, 11, 13, 12, 100]  # 100 burada bariz sırıtıyor
+aykirilar = hesaplayici.aykiri_deger_bul(aykiri_test_verisi)
+
+print(f"Tespit Edilen Aykırı Değerler: {aykirilar}")
+# Beklenen çıktı: [100]
