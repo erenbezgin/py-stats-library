@@ -171,3 +171,31 @@ class IstatistikHesaplayici:
             return [0.5] * len(temiz_veri)
         normalize_liste = [(x - min_deger) / aciklik for x in temiz_veri]
         return normalize_liste
+
+    def faktoriyel(self, n):
+        """Verilen n sayısının faktöriyelini hesaplar."""
+        if n < 0:
+            return None
+        elif n == 0 or n == 1:
+            return 1
+        else:
+            sonuc = 1
+            for i in range(2, n + 1):
+                sonuc *= i
+            return sonuc
+
+    def permutasyon(self, n, r):
+        """Verilen n ve r değerlerine göre permutasyon hesaplar."""
+        if n < 0 or r < 0 or r > n:
+            return None
+        faktoriyel_n = self.faktoryel(n)
+        faktoriyel_r = self.faktoryel(n - r)
+        return faktoriyel_n // faktoriyel_r
+
+    def kombinasyon(self, n, r):
+        """Verilen n ve r değerlerine göre kombinasyon hesaplar"""
+        if n < 0 or r < 0 or r > n:
+            return None
+        permutasyon = self.permutasyon(n, r)
+        faktoriyel_r = self.faktoryel(r)
+        return permutasyon // faktoriyel_r  # tam sayı olarak çıkması için // kullandım
