@@ -1,4 +1,4 @@
- ###py-stats-library##
+ # py-stats-library
 
 Bu kütüphane, ham verileri temizleyen, derinlemesine istatistiksel analizler yapan ve regresyon modelleriyle gelecek tahminleri yürüten modüler bir Python aracıdır.
 
@@ -33,7 +33,8 @@ Z-Skoru Analizi: Bir verinin grubun ortalamasından ne kadar saptığını ölç
 Tahminleme Motoru: Basit Doğrusal Regresyon ($y = mx + b$) ile veri odaklı tahminler yapma.
 
 
-# Proje YapısıPlaintextpy-stats-library/
+# Proje Yapısı
+Plaintextpy-stats-library/
 ├── src/
 │   ├── __init__.py
 │   ├── cleaner.py     # Veri ön işleme ve güvenlik
@@ -45,10 +46,14 @@ Tahminleme Motoru: Basit Doğrusal Regresyon ($y = mx + b$) ile veri odaklı tah
 
 # Yol Haritası 
 
-[x] Temel İstatistiksel Fonksiyonlar.
+1. [x] Temel İstatistiksel Fonksiyonlar.
 
-[x] Veri Temizleme ve Güvenlik Katmanı.
-[x] Korelasyon ve İlişkisel Analizler.
-[x] Basit Doğrusal Regresyon ve Tahminleme.
-[ ] Görselleştirme: Matplotlib ile histogram ve scatter plot çizimleri.
-[ ] Olasılık Teorisi: Faktöriyel, kombinasyon ve olasılık dağılımları.
+2. [x] Veri Temizleme ve Güvenlik Katmanı.
+
+3. [x] Korelasyon ve İlişkisel Analizler.
+
+4. [x] Basit Doğrusal Regresyon ve Tahminleme.
+
+5.[ ] Görselleştirme: Matplotlib ile histogram ve scatter plot çizimleri.
+
+6.[ ] Olasılık Teorisi: Faktöriyel, kombinasyon ve olasılık dağılımları.

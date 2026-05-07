@@ -2,7 +2,7 @@ import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
+from src.plotter import GrafikCizici
 from src.cleaner import VeriTemizleyici
 from src.calculator import IstatistikHesaplayici
 
@@ -34,3 +34,15 @@ kelimeler = [1000, 2000, 3000, 4000, 5000]
 # 10 saat okuyan biri tahminen kaç kelime bilir?
 tahmin = hesaplayici.tahmin_et(saatler, kelimeler, 10)
 print(f"Tahmin Edilen Kelime Haznesi: {tahmin}")  # 10000 çıkmalı
+# 1. Verileri hazırla
+saatler = [1, 2, 3, 4, 5]
+notlar = [20, 45, 55, 80, 95]
+
+# 2. Önce hesaplayıcıyı kullanarak denklemi bul (BEYİN)
+model = hesaplayici.regresyon_hesapla(saatler, notlar)
+egim = model["egim"]
+kesisim = model["kesisim"]
+
+# 3. Şimdi çiziciye bu bilgileri ver (EL)
+cizici = GrafikCizici()
+cizici.regresyon_grafigi_ciz(saatler, notlar, egim, kesisim)
