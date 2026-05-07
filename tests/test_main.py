@@ -27,3 +27,10 @@ liste_x = [1, 2, 3, 4, 5]
 liste_y = [2, 4, 6, 8, 10]  # Tam katı, yani korelasyon 1 çıkmalı!
 
 print(f"Korelasyon: {hesaplayici.korelasyon_hesapla(liste_x, liste_y)}")
+# Senaryo: Kitap okuma saati vs Kelime haznesi
+saatler = [1, 2, 3, 4, 5]
+kelimeler = [1000, 2000, 3000, 4000, 5000]
+
+# 10 saat okuyan biri tahminen kaç kelime bilir?
+tahmin = hesaplayici.tahmin_et(saatler, kelimeler, 10)
+print(f"Tahmin Edilen Kelime Haznesi: {tahmin}")  # 10000 çıkmalı

@@ -125,3 +125,25 @@ class IstatistikHesaplayici:
             return 0
         korelasyon = kovaryans / (standart_sapma_x * standart_sapma_y)
         return korelasyon
+
+    def regresyon_hesapla(self, veri_x, veri_y):
+        """Verilen iki veri listesinin regresyon katsayısını hesaplama"""
+        if not veri_x or not veri_y or len(veri_x) != len(veri_y):
+            return None
+        kovaryans = self.kovaryans_hesapla(veri_x, veri_y)
+        varyans = self.varyans_hesapla(veri_x)
+        if varyans == 0:
+            return None
+        egim = kovaryans / varyans
+        kesisim = self.ortalama(veri_y) - (egim * self.ortalama(veri_x))
+        return {"egim": egim, "kesisim": kesisim}
+
+    def tahmin_et(self, veri_x, veri_y, yeni_x):
+        """Verilen iki veri listesinin regresyon katsayılarını kullanarak yeni bir x değeri için y tahmini yapar."""
+        regresyon_katsayilari = self.regresyon_hesapla(veri_x, veri_y)
+        if regresyon_katsayilari is None:
+            return None
+        egim = regresyon_katsayilari["egim"]
+        kesisim = regresyon_katsayilari["kesisim"]
+        tahmin_y = egim * yeni_x + kesisim
+        return tahmin_y
