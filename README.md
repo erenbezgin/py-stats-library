@@ -32,8 +32,8 @@ py-stats-library/
 └── README.md
 
 Gelecek Planları
-[ ] Z-Skoru hesaplama (Seviye 2 tamamlanacak).
+[ ] Z-Skoru hesaplama (Seviye 2 tamamlanacak). [x]
 
-[ ] Korelasyon ve Kovaryans (İki değişkenli analiz).
+[ ] Korelasyon ve Kovaryans (İki değişkenli analiz).[x]
 
 [ ] Veri Görselleştirme (Matplotlib entegrasyonu).
