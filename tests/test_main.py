@@ -52,3 +52,7 @@ aykirilar = hesaplayici.aykiri_deger_bul(aykiri_test_verisi)
 
 print(f"Tespit Edilen Aykırı Değerler: {aykirilar}")
 # Beklenen çıktı: [100]
+yaslar = [20, 30, 40, 50]
+normalize_yaslar = hesaplayici.normalize_et(yaslar)
+print(f"Normalize Yaşlar: {normalize_yaslar}")
+# Beklenen: [0.0, 0.33, 0.66, 1.0] gibi bir çıktı.

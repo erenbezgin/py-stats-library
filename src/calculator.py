@@ -159,3 +159,15 @@ class IstatistikHesaplayici:
         ust_sinir = q3 + 1.5 * iqr
         aykiri_liste = [x for x in temiz_veri if x < alt_sinir or x > ust_sinir]
         return aykiri_liste
+
+    def normalize_et(self, temiz_veri):
+        """Verileri 0 ile 1 arasına normalize eder"""
+        if not temiz_veri:
+            return []
+        min_deger = self.minimum_deger(temiz_veri)
+        max_deger = self.maximum_deger(temiz_veri)
+        aciklik = self.aciklik(temiz_veri)
+        if max_deger == min_deger:
+            return [0.5] * len(temiz_veri)
+        normalize_liste = [(x - min_deger) / aciklik for x in temiz_veri]
+        return normalize_liste
