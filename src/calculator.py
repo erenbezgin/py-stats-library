@@ -93,3 +93,35 @@ class IstatistikHesaplayici:
         q2 = self.medyan(temiz_veri)
         q3 = sorted_veri[3 * n // 4]
         return {"Q1": q1, "Q2": q2, "Q3": q3}
+
+    def z_scoru_hesapla(self, temiz_veri):
+        """Verilen temiz veri listesinin z-skorlarını hesaplar."""
+        if not temiz_veri:
+            return []
+        ortalama = self.ortalama(temiz_veri)
+        standart_sapma = self.standart_sapma(temiz_veri)
+        if standart_sapma == 0:
+            return [0] * len(temiz_veri)
+        z_skorlari = [(x - ortalama) / standart_sapma for x in temiz_veri]
+        return z_skorlari
+
+    def kovaryans_hesapla(self, veri_x, veri_y):
+        """VErilen iki veri listesinin kovaryansını hesaplar"""
+        if not veri_x or not veri_y or len(veri_x) != len(veri_y):
+            return None
+        ortalama_x = self.ortalama(veri_x)
+        ortalama_y = self.ortalama(veri_y)
+        kovaryans = sum(
+            (x - ortalama_x) * (y - ortalama_y) for x, y in zip(veri_x, veri_y)
+        ) / (len(veri_x) - 1)
+        return kovaryans
+
+    def korelasyon_hesapla(self, veri_x, veri_y):
+        """VErilen iki veri listesinin ilişki gücünü hesaplar"""
+        kovaryans = self.kovaryans_hesapla(veri_x, veri_y)
+        standart_sapma_x = self.standart_sapma(veri_x)
+        standart_sapma_y = self.standart_sapma(veri_y)
+        if standart_sapma_x == 0 or standart_sapma_y == 0:
+            return 0
+        korelasyon = kovaryans / (standart_sapma_x * standart_sapma_y)
+        return korelasyon
