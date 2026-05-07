@@ -54,6 +54,10 @@ Plaintextpy-stats-library/
 
 4. [x] Basit Doğrusal Regresyon ve Tahminleme.
 
-5.[ ] Görselleştirme: Matplotlib ile histogram ve scatter plot çizimleri.
+5.[x] Görselleştirme: Matplotlib ile histogram ve scatter plot çizimleri.
 
-6.[ ] Olasılık Teorisi: Faktöriyel, kombinasyon ve olasılık dağılımları.
+6.[ ] Aykırı Değer Tespiti
+
+7.[ ] Veri Normalizasyonu
+
+8.[ ] Olasılık Teorisi: Faktöriyel, kombinasyon ve olasılık dağılımları.
