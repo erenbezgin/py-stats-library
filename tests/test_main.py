@@ -56,3 +56,12 @@ yaslar = [20, 30, 40, 50]
 normalize_yaslar = hesaplayici.normalize_et(yaslar)
 print(f"Normalize Yaşlar: {normalize_yaslar}")
 # Beklenen: [0.0, 0.33, 0.66, 1.0] gibi bir çıktı.
+# Senaryo: Torbada 5 Mavi, 3 Kırmızı bilye var.
+# 2 bilye çekiyoruz, 2'sinin de Kırmızı gelme olasılığı nedir?
+torba = {"mavi": 5, "kirmizi": 3}
+secim = 2
+istenen = {"kirmizi": 2}
+
+sonuc = hesaplayici.olasilik_hesapla(torba, secim, istenen)
+print(f"2 Kırmızı çekme olasılığı: %{sonuc * 100:.2f}")
+# Matematiksel beklenen: C(3,2) / C(8,2) = 3 / 28 ≈ 0.107 (yani %10.71)

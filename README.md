@@ -46,14 +46,21 @@ Hesaplanan regresyon çizgisini grafik üzerine bindirme.
 # Proje Yapısı
 Plaintext
 
-py-stats-library/
+py-stats-library
+/
+
 ├── src/
-│   ├── __init__.py
-│   ├── cleaner.py     # Veri ön işleme ve güvenlik
-│   ├── calculator.py  # İstatistiksel beyin ve tahmin motoru
-│   └── plotter.py     # Görselleştirme modülü
+│  
+├── __init__.py
+│   
+├── cleaner.py     # Veri ön işleme ve güvenlik
+│   
+├── calculator.py  # İstatistiksel beyin ve tahmin motoru
+│   
+└── plotter.py     # Görselleştirme modülü
 ├── tests/
-│   └── test_main.py   # Kullanım senaryoları ve testler
+│   
+└── test_main.py   # Kullanım senaryoları ve testler
 └── README.md
 
 # Yol Haritası (Roadmap)

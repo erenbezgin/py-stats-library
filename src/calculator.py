@@ -106,7 +106,7 @@ class IstatistikHesaplayici:
         return z_skorlari
 
     def kovaryans_hesapla(self, veri_x, veri_y):
-        """VErilen iki veri listesinin kovaryansını hesaplar"""
+        """Verilen iki veri listesinin kovaryansını hesaplar"""
         if not veri_x or not veri_y or len(veri_x) != len(veri_y):
             return None
         ortalama_x = self.ortalama(veri_x)
@@ -188,8 +188,8 @@ class IstatistikHesaplayici:
         """Verilen n ve r değerlerine göre permutasyon hesaplar."""
         if n < 0 or r < 0 or r > n:
             return None
-        faktoriyel_n = self.faktoryel(n)
-        faktoriyel_r = self.faktoryel(n - r)
+        faktoriyel_n = self.faktoriyel(n)
+        faktoriyel_r = self.faktoriyel(n - r)
         return faktoriyel_n // faktoriyel_r
 
     def kombinasyon(self, n, r):
@@ -197,5 +197,21 @@ class IstatistikHesaplayici:
         if n < 0 or r < 0 or r > n:
             return None
         permutasyon = self.permutasyon(n, r)
-        faktoriyel_r = self.faktoryel(r)
+        faktoriyel_r = self.faktoriyel(r)
         return permutasyon // faktoriyel_r  # tam sayı olarak çıkması için // kullandım
+
+    def olasilik_hesapla(self, torba, secilecek_adet, istenenler):
+        """verilen torba içindeki toplam eleman sayısı, seçilecek adet ve istenen eleman sayısına göre olasılık hesaplar"""
+        toplam_nesne = sum(torba.values())
+        if secilecek_adet > toplam_nesne:
+            return 0.0
+        tum_durumlar = self.kombinasyon(toplam_nesne, secilecek_adet)
+        if tum_durumlar == 0:
+            return 0.0
+        istenen_durumlar = 1
+        for nesne, adet in istenenler.items():
+            if nesne in torba and torba[nesne] >= adet:
+                istenen_durumlar *= self.kombinasyon(torba[nesne], adet)
+            else:
+                return 0.0
+        return istenen_durumlar / tum_durumlar
