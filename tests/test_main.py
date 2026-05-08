@@ -45,7 +45,7 @@ kesisim = model["kesisim"]
 
 # 3. Şimdi çiziciye bu bilgileri ver (EL)
 cizici = GrafikCizici()
-cizici.regresyon_grafigi_ciz(saatler, notlar, egim, kesisim)
+cizici.regresyon_grafigi_ciz(saatler, notlar, egim, kesisim, hesaplayici)
 # Normal verilerin arasına bir tane "aykırı" sızdıralım
 aykiri_test_verisi = [10, 12, 11, 13, 12, 100]  # 100 burada bariz sırıtıyor
 aykirilar = hesaplayici.aykiri_deger_bul(aykiri_test_verisi)
@@ -74,3 +74,16 @@ binom_sonuc = hesaplayici.binom_dağilimi(n, p, k)
 
 print(f"10 atışta 5 tura gelme olasılığı: %{binom_sonuc * 100:.2f}")
 # Beklenen çıktı: %24.61 civarı.
+# 1. Veri Seti (Çalışma saatine göre alınan notlar)
+# Son veriye dikkat: 5 saat çalışıp 1000 puan almış. Bu bir aykırı değer!
+# Veriyi mahsus bozuyoruz: 8. saatte 1000 almış! (Bariz aykırı)
+x_saat = [1, 2, 3, 4, 5, 6, 7, 8]
+y_not = [20, 35, 45, 60, 70, 80, 90, 1000]  # 1000 aykırı değer olacak
+
+# Yeniden hesapla
+model_yeni = hesaplayici.regresyon_hesapla(x_saat, y_not)
+
+# Şimdi çizdir (Sonuna hesaplayici eklemeyi unutma)
+cizici.regresyon_grafigi_ciz(
+    x_saat, y_not, model_yeni["egim"], model_yeni["kesisim"], hesaplayici
+)
