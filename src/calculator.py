@@ -215,3 +215,11 @@ class IstatistikHesaplayici:
             else:
                 return 0.0
         return istenen_durumlar / tum_durumlar
+
+    def binom_dağilimi(self, n, p, k):
+        """Verilen n deneme sayısı, p başarı olasılığı ve k başarı sayısına göre binom dağılımı olasılığını hesaplar."""
+        if n < 0 or p < 0 or p > 1 or k < 0 or k > n:
+            return None
+        kombinasyon = self.kombinasyon(n, k)
+        olasilik = kombinasyon * (p**k) * ((1 - p) ** (n - k))
+        return olasilik

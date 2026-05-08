@@ -65,3 +65,12 @@ istenen = {"kirmizi": 2}
 sonuc = hesaplayici.olasilik_hesapla(torba, secim, istenen)
 print(f"2 Kırmızı çekme olasılığı: %{sonuc * 100:.2f}")
 # Matematiksel beklenen: C(3,2) / C(8,2) = 3 / 28 ≈ 0.107 (yani %10.71)
+# Senaryo: Bir parayı 10 kez atıyoruz (n=10)
+# Tura gelme olasılığı (p=0.5)
+# Tam olarak 5 kez tura gelme (k=5) olasılığı nedir?
+
+n, p, k = 10, 0.5, 5
+binom_sonuc = hesaplayici.binom_dağilimi(n, p, k)
+
+print(f"10 atışta 5 tura gelme olasılığı: %{binom_sonuc * 100:.2f}")
+# Beklenen çıktı: %24.61 civarı.
